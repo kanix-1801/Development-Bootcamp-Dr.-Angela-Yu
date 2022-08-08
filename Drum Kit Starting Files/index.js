@@ -62,6 +62,7 @@ for (let i = 0; i < document.querySelectorAll(".drum").length; i++) {
     document.querySelectorAll("button")[i].addEventListener("click",function(){
       var buttonInnerHTML = this.innerHTML;
       sound(buttonInnerHTML);
+      buttonAnimation(buttonInnerHTML);
     // arr[i].play();
 });
 }
@@ -69,4 +70,11 @@ for (let i = 0; i < document.querySelectorAll(".drum").length; i++) {
 document.addEventListener("keypress",function(event){
     // console.log(event.key);
     sound(event.key);
+    buttonAnimation(event.key);
 });
+
+function buttonAnimation(input){
+  document.querySelector("."+input).classList.toggle("pressed");
+  setTimeout(function(){
+    document.querySelector("."+input).classList.toggle("pressed");} , 120);
+}
